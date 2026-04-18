@@ -42,3 +42,41 @@
     font-family: PlayfairDisplay;
     src: url("fonts/PlayfairDisplay-Regular.ttf") format("truetype");
 }
+
+@layer components {
+    .section-shell {
+        @apply px-5 py-10 sm:px-8 sm:py-12;
+    }
+
+    .section-kicker {
+        @apply font-Cormorant text-[11px] uppercase tracking-[0.35em] sm:text-xs;
+    }
+
+    .section-title {
+        @apply font-PlayfairDisplay text-2xl uppercase tracking-[0.18em] leading-tight sm:text-3xl lg:text-4xl;
+    }
+
+    .section-display {
+        @apply font-GreatVibes text-4xl leading-none sm:text-5xl lg:text-6xl;
+    }
+
+    .section-body {
+        @apply font-Cormorant text-sm leading-7 sm:text-base sm:leading-8;
+    }
+
+    .section-meta {
+        @apply font-Cormorant text-[11px] uppercase tracking-[0.3em] sm:text-xs;
+    }
+
+    .section-pill {
+        @apply inline-flex items-center rounded-full border border-current/20 bg-white/65 px-3 py-1 text-[10px] uppercase tracking-[0.35em];
+    }
+
+    .footer-section-title {
+        @apply text-lg font-bold uppercase tracking-[0.3em] sm:text-xl;
+    }
+
+    .footer-section-copy {
+        @apply text-sm leading-7 sm:text-base sm:leading-8;
+    }
+}

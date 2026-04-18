@@ -7,9 +7,10 @@ useHead({
 </script>
 
 <template>
-    <div class="w-screen bg-gray-100">
-        <div class="relative min-w-96 max-w-lg max-w-fit mx-auto drop-shadow-xl">
+    <div class="w-screen min-h-screen bg-groomPrimary overflow-x-hidden">
+        <div class="relative min-w-96 max-w-lg w-full mx-auto shadow-2xl bg-white min-h-screen">
             <slot />
         </div>
+        <floating-music-player v-if="route.path !== '/'" :key="route.path" />
     </div>
 </template>

@@ -15,17 +15,19 @@ export default {
             colors: {
                 ...defaultTheme.colors,
                 ...{
-                    groomPrimary: "#fdfbf6",
-                    groomSecondary: "#9b8579",
-                    groomTertiary: "#b38f69",
-                    bridePrimary: "#fcfbff",
-                    brideSecondary: "#6b6b6b",
-                    brideTertiary: "#4e4e4e"
+                    // Luxurious color palette
+                    groomPrimary: "#FDFCFB", // Pearl White
+                    groomSecondary: "#2C3E50", // Deep Slate
+                    groomTertiary: "#C5A880", // Soft Champagne Gold
+                    bridePrimary: "#FFF9F9", // Softest Blush
+                    brideSecondary: "#4A403A", // Warm Charcoal
+                    brideTertiary: "#D4A5A5" // Dusty Rose
                 },
             },
             fontFamily: {
                 sans: [
                     ...defaultTheme.fontFamily.sans,
+                    'Inter',
                     'Figtree',
                     'Proxima Nova',
                 ],
@@ -39,12 +41,34 @@ export default {
                 spinwerad: 'spinwerad',
                 GreatVibes: 'GreatVibes',
                 PlayfairDisplay: 'PlayfairDisplay',
+                Cinzel: 'Cinzel',
             },
             transitionDuration: {
                 '2000': '2000ms',
                 '3000': '3000ms',
                 '4000': '4000ms',
                 '5000': '5000ms',
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                'spin-slow': 'spin 8s linear infinite',
+                'glow': 'glow 3s ease-in-out infinite alternate',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' },
+                },
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                glow: {
+                    '0%': { boxShadow: '0 0 10px rgba(197, 168, 128, 0.2)' },
+                    '100%': { boxShadow: '0 0 25px rgba(197, 168, 128, 0.6)' },
+                }
             }
         },
     },

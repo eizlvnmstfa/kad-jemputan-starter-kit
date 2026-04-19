@@ -29,7 +29,8 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@vercel/speed-insights/nuxt'
   ],
   devtools: { enabled: true },
   tailwindcss: {

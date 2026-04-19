@@ -2,7 +2,7 @@
   <div class="fixed transition-all duration-300" :class="musicButtonPositionClass">
     <!-- Transparent YouTube Player to avoid bot detection and off-screen pausing -->
     <div class="fixed bottom-0 right-0 w-10 h-10 opacity-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div id="youtube-player"></div>
+      <div ref="youtubePlayerHost"></div>
     </div>
 
     <button 
@@ -26,15 +26,19 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from '#app'
 
 const route = useRoute()
 const footerPanelOpen = useState('footerPanelOpen', () => false)
+const musicVisualPhase = useState('musicVisualPhase', () => 'idle')
+const musicVisualPulse = useState('musicVisualPulse', () => 0)
 
 const isPlaying = ref(false)
+const youtubePlayerHost = ref(null)
 let ytPlayer = null
 const isPlayerReady = ref(false)
+let syncInterval = null
 
 const musicButtonPositionClass = computed(() => {
   if (footerPanelOpen.value) {
@@ -44,13 +48,28 @@ const musicButtonPositionClass = computed(() => {
   return 'bottom-[6.5rem] right-3 z-40 sm:bottom-6 sm:right-6 sm:z-50'
 })
 
-let videoId = 'xsHt1zf5lV4'
-let startSeconds = 89
+const getTrackConfigByPath = (path) => {
+  if (path === '/') {
+    return {
+      videoId: 'w10lNXHRAXw',
+      startSeconds: 0
+    }
+  }
 
-if (route.path.includes('pengantin-perempuan')) {
-  videoId = 'KrsqPE9SMxo'
-  startSeconds = 31
+  if (path.includes('pengantin-perempuan')) {
+    return {
+      videoId: 'aR2asT32zqE',
+      startSeconds: 0
+    }
+  }
+
+  return {
+    videoId: 'xsHt1zf5lV4',
+    startSeconds: 89
+  }
 }
+
+let { videoId, startSeconds } = getTrackConfigByPath(route.path)
 
 const initYouTubeAPI = () => {
   if (!window.YT) {
@@ -67,8 +86,32 @@ const initYouTubeAPI = () => {
   }
 }
 
+const destroyPlayer = () => {
+  if (ytPlayer) {
+    try {
+      ytPlayer.stopVideo?.()
+      ytPlayer.destroy?.()
+    } catch (error) {
+      console.error('Failed to destroy YouTube player:', error)
+    }
+
+    ytPlayer = null
+  }
+
+  isPlayerReady.value = false
+  isPlaying.value = false
+  musicVisualPhase.value = 'idle'
+  musicVisualPulse.value = 0
+}
+
 const createPlayer = () => {
-  ytPlayer = new window.YT.Player('youtube-player', {
+  if (!youtubePlayerHost.value) {
+    return
+  }
+
+  destroyPlayer()
+
+  ytPlayer = new window.YT.Player(youtubePlayerHost.value, {
     height: '200',
     width: '200',
     videoId: videoId,
@@ -100,8 +143,60 @@ const onPlayerReady = (event) => {
 const onPlayerStateChange = (event) => {
   if (event.data === window.YT.PlayerState.PLAYING) {
     isPlaying.value = true
+    startMusicSync()
   } else if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
     isPlaying.value = false
+    stopMusicSync()
+  }
+}
+
+const getVisualPhase = (timeSeconds) => {
+  const section = timeSeconds % 96
+
+  if (section < 24) {
+    return 'verse'
+  }
+
+  if (section < 40) {
+    return 'build'
+  }
+
+  if (section < 72) {
+    return 'chorus'
+  }
+
+  return 'bridge'
+}
+
+const updateMusicSync = () => {
+  if (!ytPlayer || !isPlayerReady.value || !isPlaying.value) {
+    return
+  }
+
+  const currentTime = Number(ytPlayer.getCurrentTime?.() || 0)
+  const phase = getVisualPhase(currentTime)
+  const phaseMultiplier = phase === 'chorus' ? 1.15 : phase === 'build' ? 0.95 : phase === 'bridge' ? 0.9 : 0.75
+  const pulse = (Math.sin(currentTime * 2.2) + 1) / 2
+
+  musicVisualPhase.value = phase
+  musicVisualPulse.value = Math.min(1, Number((pulse * phaseMultiplier).toFixed(3)))
+}
+
+const startMusicSync = () => {
+  stopMusicSync()
+  updateMusicSync()
+  syncInterval = window.setInterval(updateMusicSync, 700)
+}
+
+const stopMusicSync = () => {
+  if (syncInterval) {
+    window.clearInterval(syncInterval)
+    syncInterval = null
+  }
+
+  if (!isPlaying.value) {
+    musicVisualPhase.value = 'idle'
+    musicVisualPulse.value = 0
   }
 }
 
@@ -133,7 +228,28 @@ onMounted(() => {
   document.addEventListener('touchstart', handleFirstInteraction, { once: true })
 })
 
+watch(
+  () => route.path,
+  (newPath) => {
+    const nextTrack = getTrackConfigByPath(newPath)
+    const trackChanged = nextTrack.videoId !== videoId || nextTrack.startSeconds !== startSeconds
+
+    if (!trackChanged) {
+      return
+    }
+
+    videoId = nextTrack.videoId
+    startSeconds = nextTrack.startSeconds
+
+    if (window.YT) {
+      createPlayer()
+    }
+  }
+)
+
 onUnmounted(() => {
+  stopMusicSync()
+  destroyPlayer()
   document.removeEventListener('click', handleFirstInteraction)
   document.removeEventListener('scroll', handleFirstInteraction)
   document.removeEventListener('touchstart', handleFirstInteraction)

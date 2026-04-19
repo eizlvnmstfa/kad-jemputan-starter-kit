@@ -63,16 +63,11 @@
             waze: config.public.brideMapsWazeUrl
         }
     }
-    
-    const rsvp = {
-        iframe: config.public.brideRsvpIframe
-    }
 
     const footerDetails = {
         calendar: calendar,
         contacts: contacts,
         maps: maps,
-        rsvp: rsvp,
     }
 </script>
 
@@ -88,10 +83,10 @@
         <card-section class="overflow-hidden flex flex-col justify-center text-brideSecondary bg-bridePrimary font-Cormorant animate-fade-in-up" :style="sectionBackgroundStyle">
             <div class="relative m-3 px-3 py-32 text-center">
                 <div class="absolute top-0 left-0 w-full h-full border-[1px] border-brideTertiary/60 ring-1 ring-offset-4 ring-offset-bridePrimary ring-brideTertiary/30 rounded-3xl bg-white shadow-xl"></div>
-                <img class="absolute bottom-0 right-0 w-16 -translate-x-1/2 -translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:0ms]" src="~/assets/images/flower-8.svg" alt="Flower 8"/>
-                <img class="absolute bottom-0 left-0 w-16 translate-x-1/2 -translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:500ms]" src="~/assets/images/flower-6.svg" alt="Flower 6"/>
-                <img class="absolute top-0 right-0 w-16 -translate-x-1/2 translate-y-1/2 scale-[5] opacity-60 animate-float [animation-delay:1000ms]" src="~/assets/images/flower-7.svg" alt="Flower 7"/>
-                <img class="absolute top-0 left-0 w-16 translate-x-1/2 scale-[4] opacity-60 animate-float [animation-delay:1500ms]" src="~/assets/images/flower-5.svg" alt="Flower 5"/>
+                <img class="absolute bottom-0 right-0 w-16 -translate-x-1/2 -translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:0ms]" src="~/assets/images/flower-8.svg" alt="" aria-hidden="true"/>
+                <img class="absolute bottom-0 left-0 w-16 translate-x-1/2 -translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:500ms]" src="~/assets/images/flower-6.svg" alt="" aria-hidden="true"/>
+                <img class="absolute top-0 right-0 w-16 -translate-x-1/2 translate-y-1/2 scale-[5] opacity-60 animate-float [animation-delay:1000ms]" src="~/assets/images/flower-7.svg" alt="" aria-hidden="true"/>
+                <img class="absolute top-0 left-0 w-16 translate-x-1/2 scale-[4] opacity-60 animate-float [animation-delay:1500ms]" src="~/assets/images/flower-5.svg" alt="" aria-hidden="true"/>
                 <p class="section-kicker text-brideTertiary z-10 relative">Jemputan Majlis</p>
                 <p class="section-display text-brideTertiary z-10 relative mt-2 drop-shadow-sm">Walimatul Urus</p>
                 <div class="text-3xl my-12 font-PlayfairDisplay z-10 relative">
@@ -133,7 +128,7 @@
             </div>
         </card-section>
         <card-section class="text-center text-brideSecondary bg-bridePrimary font-Cormorant animate-fade-in-up [animation-delay:600ms]" :style="sectionBackgroundStyle">
-            <p class="section-body italic text-base sm:text-lg">Semoga dengan kehadiran dan doa restu</p>
+            <p class="section-body italic text-base sm:text-lg">Semoga dengan doa restu</p>
             <p class="font-PlayfairDisplay text-lg sm:text-xl my-2 text-brideTertiary tracking-[0.2em] uppercase">Dato' / Datin / Tuan / Puan / Encik / Cik / Hj / Hjh</p>
             <p class="section-body italic text-base sm:text-lg">dapat menyerikan lagi majlis kami dan diberkati Allah SWT</p>
         </card-section>

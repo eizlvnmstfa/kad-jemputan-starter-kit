@@ -1,13 +1,31 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+const siteTitle = 'Walimatul Urus | Sofiya & Eizlan'
+const siteDescription = 'Jemputan rasmi majlis perkahwinan Sofiya & Eizlan. Lihat butiran majlis, peta lokasi, dan tambah ke kalendar.'
+const siteImage = `${siteUrl}/pattern-1.png`
+
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Walimatul Urus',
+      title: siteTitle,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0' },
+        { name: 'description', content: siteDescription },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: siteUrl },
+        { property: 'og:title', content: siteTitle },
+        { property: 'og:description', content: siteDescription },
+        { property: 'og:image', content: siteImage },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: siteTitle },
+        { name: 'twitter:description', content: siteDescription },
+        { name: 'twitter:image', content: siteImage },
       ],
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'canonical', href: siteUrl }
+      ]
     }
   },
   modules: [
@@ -21,7 +39,7 @@ export default defineNuxtConfig({
     exposeLevel: 2,
     config: {},
     injectPosition: 'first',
-    viewer: true,
+    viewer: false,
   },
   runtimeConfig: {
     public: {
@@ -65,9 +83,6 @@ export default defineNuxtConfig({
       groomMapsGmapUrl: process.env.GROOM_MAPS_GMAP_URL,
       groomMapsWazeUrl: process.env.GROOM_MAPS_WAZE_URL,
 
-      // Groom RSVP Configuration
-      groomRsvpIframe: process.env.GROOM_RSVP_IFRAME,
-
       // ##### BRIDE DETAILS
       // Personal
       brideName: process.env.BRIDE_NAME,
@@ -107,9 +122,6 @@ export default defineNuxtConfig({
       brideMapsIframe: process.env.BRIDE_MAPS_IFRAME,
       brideMapsGmapUrl: process.env.BRIDE_MAPS_GMAP_URL,
       brideMapsWazeUrl: process.env.BRIDE_MAPS_WAZE_URL,
-
-      // Bride RSVP Configuration
-      brideRsvpIframe: process.env.BRIDE_RSVP_IFRAME,
     }
   }
 })

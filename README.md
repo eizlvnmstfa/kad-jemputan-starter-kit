@@ -9,7 +9,6 @@ A beautiful, responsive digital wedding invitation built with Nuxt 3 and Tailwin
 - **Responsive Design**: Mobile-first approach with elegant layouts
 - **Calendar Integration**: Google Calendar, Outlook, and downloadable ICS files
 - **Interactive Maps**: Google Maps and Waze integration for venue locations
-- **RSVP Forms**: Embedded Google Forms for guest responses
 
 ## Limitation
 
@@ -20,7 +19,6 @@ A beautiful, responsive digital wedding invitation built with Nuxt 3 and Tailwin
 - **Manual ICS Generation**: Calendar files must be created manually using external tools
 - **No Image Upload**: All images must be manually placed in assets folder
 - **Hardcoded Layout**: Card sections and layouts are not configurable through UI
-- **No Guest Management**: RSVP responses handled externally through Google Forms
 
 ## Local Setup
 
@@ -48,10 +46,6 @@ Start the development server on `http://localhost:3000`:
 # npm
 npm run dev
 ```
-
-## Deployment
-
-You can deploy to Cloudflare Page using `*.pages.dev` subdomain. Can refer to [deployment page](DEPLOYMENT.md).
 
 ## Project Structure
 

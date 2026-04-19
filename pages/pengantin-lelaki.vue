@@ -63,16 +63,11 @@
             waze: config.public.groomMapsWazeUrl
         }
     }
-    
-    const rsvp = {
-        iframe: config.public.groomRsvpIframe
-    }
 
     const footerDetails = {
         calendar: calendar,
         contacts: contacts,
         maps: maps,
-        rsvp: rsvp,
     }
 </script>
 
@@ -87,10 +82,10 @@
         </NuxtLink>
         <card-section class="overflow-hidden flex flex-col justify-center text-groomSecondary bg-groomPrimary font-Cormorant animate-fade-in-up" :style="sectionBackgroundStyle">
             <div class="relative m-3 px-3 py-32 border-[1px] border-groomTertiary/60 ring-1 ring-offset-4 ring-offset-groomPrimary ring-groomTertiary/30 rounded-3xl bg-white shadow-xl">
-                <img class="absolute bottom-0 right-0 w-16 translate-y-1/2 scale-[3] opacity-60 animate-float [animation-delay:0ms]" src="~/assets/images/flower-1.svg" alt="Flower 1"/>
-                <img class="absolute bottom-0 left-0 w-16 translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:500ms]" src="~/assets/images/flower-2.svg" alt="Flower 2"/>
-                <img class="absolute top-0 right-0 w-16 translate-y-1/2 scale-[5] opacity-60 animate-float [animation-delay:1000ms]" src="~/assets/images/flower-3.svg" alt="Flower 3"/>
-                <img class="absolute top-0 left-0 w-16 -translate-x-1/2 -translate-y-20 scale-[3] opacity-60 animate-float [animation-delay:1500ms]" src="~/assets/images/flower-4.svg" alt="Flower 4"/>
+                <img class="absolute bottom-0 right-0 w-16 translate-y-1/2 scale-[3] opacity-60 animate-float [animation-delay:0ms]" src="~/assets/images/flower-1.svg" alt="" aria-hidden="true"/>
+                <img class="absolute bottom-0 left-0 w-16 translate-y-1/2 scale-[4] opacity-60 animate-float [animation-delay:500ms]" src="~/assets/images/flower-2.svg" alt="" aria-hidden="true"/>
+                <img class="absolute top-0 right-0 w-16 translate-y-1/2 scale-[5] opacity-60 animate-float [animation-delay:1000ms]" src="~/assets/images/flower-3.svg" alt="" aria-hidden="true"/>
+                <img class="absolute top-0 left-0 w-16 -translate-x-1/2 -translate-y-20 scale-[3] opacity-60 animate-float [animation-delay:1500ms]" src="~/assets/images/flower-4.svg" alt="" aria-hidden="true"/>
                 <p class="section-kicker text-groomTertiary mb-4">Majlis Perkahwinan</p>
                 <div class="text-center text-groomTertiary my-12 drop-shadow-sm">
                     <p class="section-title normal-case tracking-[0.18em] sm:text-5xl lg:text-6xl text-groomTertiary">{{ config.public.groomName }}</p>
@@ -130,7 +125,7 @@
             </div>
         </card-section>
         <card-section class="text-center text-groomSecondary bg-groomPrimary font-Cormorant animate-fade-in-up [animation-delay:600ms]" :style="sectionBackgroundStyle">
-            <p class="section-body italic text-base sm:text-lg">Semoga dengan kehadiran dan doa restu</p>
+            <p class="section-body italic text-base sm:text-lg">Semoga dengan doa restu</p>
             <p class="font-PlayfairDisplay text-lg sm:text-xl my-2 text-groomTertiary tracking-[0.2em] uppercase">Dato' / Datin / Tuan / Puan / Encik / Cik / Hj / Hjh</p>
             <p class="section-body italic text-base sm:text-lg">dapat menyerikan lagi majlis kami dan diberkati Allah SWT</p>
         </card-section>

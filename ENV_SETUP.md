@@ -68,11 +68,6 @@ GROOM_MAPS_GMAP_URL=Google Maps Share URL
 GROOM_MAPS_WAZE_URL=Waze Navigation URL
 ```
 
-#### RSVP Configuration
-```env
-GROOM_RSVP_IFRAME=Google Forms Embed URL
-```
-
 ### Bride Details
 
 #### Personal Information
@@ -124,11 +119,6 @@ BRIDE_MAPS_GMAP_URL=Google Maps Share URL
 BRIDE_MAPS_WAZE_URL=Waze Navigation URL
 ```
 
-#### RSVP Configuration
-```env
-BRIDE_RSVP_IFRAME=Google Forms Embed URL
-```
-
 ## Important Configuration Notes
 
 ### Date Format
@@ -146,10 +136,6 @@ Generate Google Calendar URLs using this format:
 ```
 https://calendar.google.com/calendar/render?action=TEMPLATE&text=EVENT_TITLE&details=EVENT_DESCRIPTION&dates=START_DATE/END_DATE&location=LOCATION
 ```
-
-### Google Forms (RSVP)
-- Create Google Forms for RSVP collection
-- Use the embed URL format: `https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true`
 
 ### Maps Integration
 - **Google Maps Iframe**: Get embed code from Google Maps
@@ -183,8 +169,6 @@ https://calendar.google.com/calendar/render?action=TEMPLATE&text=EVENT_TITLE&det
    - Calendar links work correctly
    - Maps open properly
    - Contact numbers are clickable
-   - RSVP forms load
-
 ## Troubleshooting
 
 ### Common Issues

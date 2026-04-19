@@ -2,7 +2,7 @@
     const config = useRuntimeConfig()
 </script>
 
-<template>
+<template> 
     <div class="relative min-h-screen overflow-x-hidden bg-[#FDFCFB]">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(197,168,128,0.12),_transparent_40%),radial-gradient(circle_at_bottom,_rgba(212,165,165,0.08),_transparent_35%)]"></div>
         <div class="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-5 sm:px-6 lg:px-8">
@@ -14,7 +14,7 @@
                     {{ config.public.brideName }} & {{ config.public.groomName }}
                 </h1>
                 <p class="mx-auto mt-3 max-w-2xl text-sm sm:text-base leading-relaxed text-groomSecondary/70">
-                    Pilih bahagian majlis untuk lihat butiran, lokasi, kalendar, dan RSVP.
+                    Pilih bahagian majlis untuk lihat butiran, lokasi, dan kalendar.
                 </p>
             </div>
 
@@ -42,9 +42,9 @@
                                 </p>
                             </div>
                             <div class="relative z-10 flex items-end justify-between gap-3 text-brideTertiary/70">
-                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:rotate-3 group-hover:scale-110" src="~/assets/images/flower-8.svg" alt="Flower 8"/>
+                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:rotate-3 group-hover:scale-110" src="~/assets/images/flower-8.svg" alt="" aria-hidden="true"/>
                                 <span class="font-Cormorant text-xs uppercase tracking-[0.3em]">Lihat butiran</span>
-                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-110" src="~/assets/images/flower-6.svg" alt="Flower 6"/>
+                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-110" src="~/assets/images/flower-6.svg" alt="" aria-hidden="true"/>
                             </div>
                         </div>
                     </card>
@@ -73,9 +73,9 @@
                                 </p>
                             </div>
                             <div class="relative z-10 flex items-end justify-between gap-3 text-groomTertiary/70">
-                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:rotate-3 group-hover:scale-110" src="~/assets/images/flower-1.svg" alt="Flower 1"/>
+                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:rotate-3 group-hover:scale-110" src="~/assets/images/flower-1.svg" alt="" aria-hidden="true"/>
                                 <span class="font-Cormorant text-xs uppercase tracking-[0.3em]">Lihat butiran</span>
-                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-110" src="~/assets/images/flower-2.svg" alt="Flower 2"/>
+                                <img class="w-14 opacity-50 transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-110" src="~/assets/images/flower-2.svg" alt="" aria-hidden="true"/>
                             </div>
                         </div>
                     </card>

@@ -32,6 +32,19 @@
         @apply font-GreatVibes text-4xl leading-none sm:text-5xl lg:text-6xl;
     }
 
+    .section-couple-wrap {
+        @apply my-12 text-center;
+    }
+
+    .section-couple-name {
+        font-family: 'Aptos', 'Aptos Display', 'PlayfairDisplay', 'Cormorant', serif;
+        @apply text-4xl leading-none tracking-[0.08em] normal-case text-[#1f1f1f] sm:text-5xl lg:text-6xl;
+    }
+
+    .section-couple-divider {
+        @apply my-3 font-Cormorant text-sm text-[#1f1f1f] opacity-60 sm:text-base;
+    }
+
     .section-body {
         @apply font-Cormorant text-sm leading-7 sm:text-base sm:leading-8;
     }

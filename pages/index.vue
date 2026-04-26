@@ -256,30 +256,30 @@
                 </NuxtLink>
 
                 <NuxtLink to="/pengantin-lelaki" class="group block h-full animate-fade-in-up [animation-delay:430ms]">
-                    <card class="bg-groomPrimary" type="groom">
-                        <div class="relative flex h-full min-h-[30rem] flex-col justify-between overflow-hidden text-groomSecondary">
+                    <card class="bg-bridePrimary" type="bride">
+                        <div class="relative flex h-full min-h-[30rem] flex-col justify-between overflow-hidden text-brideSecondary">
                             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.85),_transparent_50%)]"></div>
-                            <div class="relative z-10 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-groomSecondary/55">
+                            <div class="relative z-10 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-brideSecondary/55">
                                 <span>Pengantin Lelaki</span>
-                                <span class="rounded-full border border-groomTertiary/20 bg-white/70 px-3 py-1">Buka</span>
+                                <span class="rounded-full border border-brideTertiary/20 bg-white/70 px-3 py-1">Buka</span>
                             </div>
                             <div class="relative z-10 my-auto text-center">
-                                <p class="font-GreatVibes text-4xl sm:text-5xl lg:text-6xl text-groomTertiary drop-shadow-sm transition-transform duration-700 group-hover:scale-[1.02]">
+                                <p class="font-GreatVibes text-4xl sm:text-5xl lg:text-6xl text-[#6FA7DF] drop-shadow-sm transition-transform duration-700 group-hover:scale-[1.02]">
                                     Majlis
                                 </p>
-                                <p class="mt-2 font-PlayfairDisplay text-2xl sm:text-3xl lg:text-4xl uppercase tracking-[0.2em] text-groomSecondary">
-                                    Pengantin Lelaki
+                                <p class="mt-2 font-PlayfairDisplay text-2xl sm:text-3xl lg:text-4xl uppercase tracking-[0.2em] text-brideSecondary">
+                                    Pengantin<br/>Lelaki
                                 </p>
-                                <p class="mx-auto mt-4 max-w-xs text-sm sm:text-base leading-relaxed text-groomSecondary/75 font-Cormorant">
+                                <p class="mx-auto mt-4 max-w-xs text-sm sm:text-base leading-relaxed text-brideSecondary/75 font-Cormorant">
                                     {{ config.public.groomCalendarDateMasihih }}
                                 </p>
-                                <p class="mx-auto mt-2 max-w-sm text-sm sm:text-base leading-relaxed text-groomSecondary/65 font-Cormorant">
+                                <p class="mx-auto mt-2 max-w-sm text-sm sm:text-base leading-relaxed text-brideSecondary/65 font-Cormorant">
                                     {{ config.public.groomAddressLine2 }}, {{ config.public.groomAddressState }}
                                 </p>
                             </div>
-                            <div class="relative z-10 flex items-end justify-between gap-3 text-groomTertiary/70">
+                            <div class="relative z-10 flex items-end justify-between gap-3 text-brideTertiary/70">
                                 <img class="w-14 opacity-50 transition-transform duration-700 group-hover:rotate-3 group-hover:scale-110" src="~/assets/images/flower-1.svg" alt="" aria-hidden="true"/>
-                                <span class="font-Cormorant text-xs uppercase tracking-[0.3em]">Lihat butiran</span>
+                                <span class="font-Cormorant text-xs uppercase tracking-[0.3em] text-[#6FA7DF]/80">Lihat butiran</span>
                                 <img class="w-14 opacity-50 transition-transform duration-700 group-hover:-rotate-3 group-hover:scale-110" src="~/assets/images/flower-2.svg" alt="" aria-hidden="true"/>
                             </div>
                         </div>

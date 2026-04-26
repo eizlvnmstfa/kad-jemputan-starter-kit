@@ -72,7 +72,7 @@
 </script>
 
 <template>
-    <div class="bg-[#FFF9F9] overflow-x-hidden">
+    <div class="bg-[#FDFCFB] overflow-x-hidden">
         <!-- Back to Home Button -->
         <NuxtLink to="/" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md border border-brideTertiary/30 rounded-full shadow-lg text-brideSecondary font-Cormorant tracking-widest uppercase text-xs hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300 group">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-brideTertiary group-hover:-translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -89,10 +89,10 @@
                 <img class="absolute top-0 left-0 w-16 translate-x-1/2 scale-[4] opacity-60 animate-float [animation-delay:1500ms]" src="~/assets/images/flower-5.svg" alt="" aria-hidden="true"/>
                 <p class="section-kicker text-brideTertiary z-10 relative">Jemputan Majlis</p>
                 <p class="section-display text-brideTertiary z-10 relative mt-2 drop-shadow-sm">Walimatul Urus</p>
-                <div class="text-3xl my-12 font-PlayfairDisplay z-10 relative">
-                    <p class="section-title italic text-brideSecondary">{{ config.public.brideName }}</p>
-                    <p class="section-meta font-normal text-brideSecondary/60 my-2">&</p>
-                    <p class="section-title italic text-brideSecondary">{{ config.public.groomName }}</p>
+                <div class="section-couple-wrap z-10 relative text-brideSecondary">
+                    <p class="section-couple-name">{{ config.public.brideName }}</p>
+                    <p class="section-couple-divider">&</p>
+                    <p class="section-couple-name">{{ config.public.groomName }}</p>
                 </div>
                 <p class="section-kicker text-brideTertiary z-10 relative mb-4">{{ calendar.day }}</p>
                 <p class="flex flex-row text-center justify-center mb-6 text-brideSecondary section-body z-10 relative uppercase tracking-[0.25em]">
@@ -152,5 +152,5 @@
             Created by <span class="font-bold">Eizlan Hakimie</span>
         </div>
     </div>
-    <card-footer :footerDetails="footerDetails"/>
+    <card-footer :footerDetails="footerDetails" theme="bride"/>
 </template>

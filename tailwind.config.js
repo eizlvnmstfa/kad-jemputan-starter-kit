@@ -16,10 +16,10 @@ export default {
                 ...defaultTheme.colors,
                 ...{
                     // Luxurious color palette
-                    groomPrimary: "#FDFCFB", // Pearl White
-                    groomSecondary: "#2C3E50", // Deep Slate
-                    groomTertiary: "#C5A880", // Soft Champagne Gold
-                    bridePrimary: "#FFF9F9", // Softest Blush
+                    groomPrimary: "#FDFCFB", // Soft Ivory
+                    groomSecondary: "#1F3A5A", // Deep Navy Blue
+                    groomTertiary: "#6FA7DF", // Slightly deeper sky blue
+                    bridePrimary: "#FDFCFB", // Soft Ivory
                     brideSecondary: "#4A403A", // Warm Charcoal
                     brideTertiary: "#D4A5A5" // Dusty Rose
                 },

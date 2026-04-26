@@ -1,6 +1,10 @@
 <script setup>
 const props = defineProps({
-    calendar: Object
+    calendar: Object,
+    theme: {
+        type: String,
+        default: 'groom'
+    }
 })
 
 const parseIcsHref = (icsUrl) => {
@@ -30,10 +34,10 @@ const parseIcsHref = (icsUrl) => {
 </script>
 
 <template>
-    <div class="relative h-full w-full text-groomSecondary">
+    <div class="relative h-full w-full" :class="props.theme === 'bride' ? 'text-brideSecondary' : 'text-groomSecondary'">
         <p class="footer-section-title mb-9">Kalendar</p>
         
-        <div class="mb-8 fill-groomSecondary">
+        <div class="mb-8" :class="props.theme === 'bride' ? 'fill-brideSecondary' : 'fill-groomSecondary'">
             <div class="grid grid-flow-row auto-rows-maxl text-center">
                 <div class="flex justify-center mb-9">
                     <div class="footer-section-copy">

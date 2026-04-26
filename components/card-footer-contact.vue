@@ -1,6 +1,10 @@
 <script setup>
 const props = defineProps({
-    contacts: Array
+    contacts: Array,
+    theme: {
+        type: String,
+        default: 'groom'
+    }
 })
 
 const parseCallHref = (number) => {
@@ -12,10 +16,10 @@ const parseWhatsAppHref = (number) => {
 }
 </script>
 <template>
-    <div class="text-groomSecondary fill-groomSecondary">
+    <div :class="props.theme === 'bride' ? 'text-brideSecondary fill-brideSecondary' : 'text-groomSecondary fill-groomSecondary'">
         <p class="footer-section-title mb-9">Hubungi</p>
         <div class="grid grid-cols-1 gap-6 sm:gap-7">
-            <div class="flex items-center justify-center gap-6 border-b border-groomTertiary/10 pb-5 last:border-b-0" v-for="contact in contacts" :key="contact.number || contact.name">
+            <div class="flex items-center justify-center gap-6 border-b pb-5 last:border-b-0" :class="props.theme === 'bride' ? 'border-brideTertiary/10' : 'border-groomTertiary/10'" v-for="contact in contacts" :key="contact.number || contact.name">
                 <div class="footer-section-copy min-w-[11rem] text-right">
                     {{ contact.name }}
                 </div>

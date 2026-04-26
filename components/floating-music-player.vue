@@ -39,6 +39,7 @@ const youtubePlayerHost = ref(null)
 let ytPlayer = null
 const isPlayerReady = ref(false)
 let syncInterval = null
+const hasUserToggledPlayback = ref(false)
 
 const musicButtonPositionClass = computed(() => {
   if (footerPanelOpen.value) {
@@ -201,6 +202,9 @@ const stopMusicSync = () => {
 }
 
 const togglePlay = () => {
+  hasUserToggledPlayback.value = true
+  removeFirstInteractionListeners()
+
   if (isPlayerReady.value && ytPlayer) {
     if (isPlaying.value) {
       ytPlayer.pauseVideo()
@@ -214,9 +218,19 @@ const togglePlay = () => {
 
 // Fallback to force play on first interaction if autoplay blocked by browser
 const handleFirstInteraction = () => {
+  if (hasUserToggledPlayback.value) {
+    return
+  }
+
   if (isPlayerReady.value && ytPlayer && !isPlaying.value) {
     ytPlayer.playVideo()
   }
+}
+
+const removeFirstInteractionListeners = () => {
+  document.removeEventListener('click', handleFirstInteraction)
+  document.removeEventListener('scroll', handleFirstInteraction)
+  document.removeEventListener('touchstart', handleFirstInteraction)
 }
 
 onMounted(() => {
@@ -250,8 +264,6 @@ watch(
 onUnmounted(() => {
   stopMusicSync()
   destroyPlayer()
-  document.removeEventListener('click', handleFirstInteraction)
-  document.removeEventListener('scroll', handleFirstInteraction)
-  document.removeEventListener('touchstart', handleFirstInteraction)
+  removeFirstInteractionListeners()
 })
 </script>

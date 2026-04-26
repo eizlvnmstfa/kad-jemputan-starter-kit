@@ -1,12 +1,16 @@
 <script setup>
 const props = defineProps({
-    maps: Object
+    maps: Object,
+    theme: {
+        type: String,
+        default: 'groom'
+    }
 })
 
 </script>
 
 <template>
-    <div class="relative h-full w-full text-groomSecondary">
+    <div class="relative h-full w-full" :class="props.theme === 'bride' ? 'text-brideSecondary' : 'text-groomSecondary'">
         <p class="footer-section-title mb-9">Peta</p>
         <iframe :src="props.maps.iframe" title="Peta lokasi majlis" style="border:0; width: 100%; height: 200px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="absolute w-full mx-auto flex justify-center gap-4 fill-white drop-shadow-lg -translate-y-1/2">
